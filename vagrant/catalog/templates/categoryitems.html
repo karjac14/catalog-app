@@ -1,0 +1,73 @@
+{% extends "main.html" %} {% block content %} {% include "loggedheader.html" %}
+<!-- <div class="row top-menu">
+		<div class="col-md-10"></div>
+		<div class="col-md-2 text-right">
+					</div>
+	</div>
+	<div class="row divider blue">
+		<div class="col-md-12"></div>
+	</div> -->
+
+
+<div class='flash'>
+	{% with messages = get_flashed_messages() %} {% if messages %}
+	<ul>
+		{% for message in messages %}
+		<li> <strong> {{ message }} </strong> </li>
+		{% endfor %}
+	</ul>
+	{% endif %} {% endwith %}
+</div>
+
+<div class="row padding-top padding-bottom">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<h2>{{category.name}}
+				{% if is_creator %}
+				<a href="{{url_for('deleteCategory', category_id = category.id)}}" class="pull-right">
+					<button class="btn btn-danger" id="new-category">
+						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete this Category
+					</button>
+				</a>
+				<a href="{{url_for('editCategory', category_id = category.id)}}" class="pull-right">
+					<button class="btn btn-primary" id="new-category">
+						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit this Category
+					</button>
+				</a>
+				<a href="{{url_for('newItem', category_id = category.id)}}" class="pull-right">
+					<button class="btn btn-default" id="new-category">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add an Item
+					</button>
+				</a>
+				{% endif %}
+	</h2>
+	<br>
+	<br>
+</div>
+
+	</div>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6 item-list well">
+			{% if items.count() > 0 %}
+			{% for item in items %}
+			<a href="{{url_for('showItem', item_id = item.id)}}">
+				{{item.name}}<span class="price pull-right">${{item.price}}</span>
+			</a>
+			<br>
+			{% endfor %}
+			<br>
+			<br>
+			{% else %}
+			<br>
+			<br>
+			<em class="text-center">There are no items in this category yet.{% if is_creator %} Add some! {% endif %}</em>
+			<br>
+			<br>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+{% endblock %}

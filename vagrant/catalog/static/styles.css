@@ -1,0 +1,30 @@
+
+body {
+  padding-top: 80px;
+}
+
+
+.category-list a {
+  font-size: 18px;
+}
+
+.latest-list a {
+  font-size: 14px;
+}
+
+.cat-name{
+  color: #bbb;
+}
+
+.price {
+  color: red;
+}
+
+.flash {
+
+}
+
+.username{
+  color: #fff;
+  font-size: 24px;
+}

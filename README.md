@@ -51,4 +51,4 @@ Please fork this forked repo, and make a PR.
 
 ## Acknowledgements
 
-Udacity
+Udacity and to the original owners the vagrant codes at: https://github.com/udacity/fullstack-nanodegree-vm
